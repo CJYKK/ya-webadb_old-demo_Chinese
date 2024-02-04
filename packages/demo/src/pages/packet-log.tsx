@@ -58,14 +58,14 @@ const state = new (class {
                 key: "clear",
                 disabled: this.empty,
                 iconProps: { iconName: Icons.Delete },
-                text: "Clear",
+                text: "清空",
                 onClick: action(() => GLOBAL_STATE.clearLog()),
             },
             {
                 key: "select-all",
                 disabled: this.empty,
                 iconProps: { iconName: Icons.Wand },
-                text: "Select All",
+                text: "全选",
                 onClick: action(() => {
                     this.selection.clear();
                     this.selection.select(
@@ -79,7 +79,7 @@ const state = new (class {
                 key: "copy",
                 disabled: this.selection.size === 0,
                 iconProps: { iconName: Icons.Copy },
-                text: "Copy",
+                text: "复制",
                 onClick: () => {
                     let text = "";
                     for (const index of this.selection) {
@@ -153,7 +153,7 @@ const useClasses = makeStyles({
 
 const columns: Column[] = [
     {
-        title: "Direction",
+        title: "方向",
         width: 100,
         CellComponent: withDisplayName("Direction")(
             ({ className, rowIndex, ...rest }: GridCellProps) => {
@@ -173,7 +173,7 @@ const columns: Column[] = [
         ),
     },
     {
-        title: "Command",
+        title: "命令",
         width: 100,
         CellComponent: withDisplayName("Command")(
             ({ className, rowIndex, ...rest }: GridCellProps) => {
@@ -322,7 +322,7 @@ const PacketLog: NextPage = () => {
     return (
         <Stack {...RouteStackProps} tokens={{}}>
             <Head>
-                <title>Packet Log - Tango</title>
+                <title>数据包日志 - Tango</title>
             </Head>
 
             <CommandBar items={state.commandBarItems} />

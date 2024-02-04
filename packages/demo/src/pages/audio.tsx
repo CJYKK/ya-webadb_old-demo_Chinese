@@ -44,14 +44,14 @@ function AudioPage() {
         !(GLOBAL_STATE.device instanceof AdbDaemonWebUsbDevice)
     ) {
         return (
-            <div>Audio forward can only be used with WebUSB connection.</div>
+            <div>音频转发只能与WebUSB连接使用。</div>
         );
     }
 
     return (
         <div>
             <div>
-                Supported:{" "}
+                已支持：{" "}
                 {supported === undefined ? "Unknown" : supported ? "Yes" : "No"}
             </div>
             <div>
@@ -59,19 +59,19 @@ function AudioPage() {
                     disabled={!GLOBAL_STATE.device}
                     onClick={handleQuerySupportClick}
                 >
-                    Query Support
+                    查询支持
                 </PrimaryButton>
                 <DefaultButton
                     disabled={!supported}
                     onClick={handleEnableClick}
                 >
-                    Enable
+                    启用
                 </DefaultButton>
                 <DefaultButton
                     disabled={!supported}
                     onClick={handleDisableClick}
                 >
-                    Disable
+                    禁用
                 </DefaultButton>
             </div>
         </div>

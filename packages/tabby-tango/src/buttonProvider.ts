@@ -26,7 +26,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
         if (AdbState.value) {
             this.profile.openNewTabForProfile({ type: "adb", name: "Shell" });
         } else if (showError) {
-            this.notification.error("Please connect your device first");
+            this.notification.error("请先连接你的设备");
         }
     }
 
@@ -34,7 +34,7 @@ export class ButtonProvider extends ToolbarButtonProvider {
         return [
             {
                 icon: require("./icons/plus.svg"),
-                title: "New tab",
+                title: "新标签页",
                 click: () => {
                     this.launchProfile(true);
                 },

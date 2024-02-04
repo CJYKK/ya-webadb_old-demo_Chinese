@@ -371,18 +371,18 @@ const ChromeDevToolsPage: NextPage = observer(function ChromeDevTools() {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>Chrome Remote Debugging - Tango</title>
+                <title>Chrome远程调试 - Tango</title>
             </Head>
 
             {STATE.browsers.length === 0 ? (
                 <>
-                    <h2>Supported browsers:</h2>
+                    <h2>支持的浏览器：</h2>
                     <ul>
-                        <li>Google Chrome (stable/beta/dev/canary)</li>
-                        <li>Microsoft Edge (stable/beta/dev/canary)</li>
-                        <li>Opera (stable/beta)</li>
+                        <li>Google Chrome（stable/beta/dev/canary）</li>
+                        <li>Microsoft Edge（stable/beta/dev/canary）</li>
+                        <li>Opera（stable/beta）</li>
                         <li>Vivaldi</li>
-                        <li>Any WebView with remote debugging on</li>
+                        <li>任何开启了远程调试的WebView</li>
                     </ul>
                 </>
             ) : (
@@ -404,11 +404,11 @@ const ChromeDevToolsPage: NextPage = observer(function ChromeDevTools() {
                                             }}
                                         />
                                     ) : (
-                                        <i>No Title</i>
+                                        <i>无标题</i>
                                     )}
 
                                     <span className={classes.url}>
-                                        {page.url || <i>No URL</i>}
+                                        {page.url || <i>无URL</i>}
                                     </span>
                                 </div>
                                 <div>

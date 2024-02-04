@@ -23,12 +23,12 @@ const SignalStrengthOptions = Object.values(DemoModeSignalStrength).map(
     (key) => ({
         key,
         text: {
-            [DemoModeSignalStrength.Hidden]: "Hidden",
-            [DemoModeSignalStrength.Level0]: "Level 0",
-            [DemoModeSignalStrength.Level1]: "Level 1",
-            [DemoModeSignalStrength.Level2]: "Level 2",
-            [DemoModeSignalStrength.Level3]: "Level 3",
-            [DemoModeSignalStrength.Level4]: "Level 4",
+            [DemoModeSignalStrength.Hidden]: "隐藏",
+            [DemoModeSignalStrength.Level0]: "等级0",
+            [DemoModeSignalStrength.Level1]: "等级1",
+            [DemoModeSignalStrength.Level2]: "等级2",
+            [DemoModeSignalStrength.Level3]: "等级3",
+            [DemoModeSignalStrength.Level4]: "等级4",
         }[key],
     })
 );
@@ -52,20 +52,20 @@ const MobileDataTypeOptions = DemoModeMobileDataTypes.map((key) => ({
         "h+": "HSPA+",
         lte: "LTE",
         "lte+": "LTE+",
-        dis: "Disabled",
-        not: "Not default SIM",
-        null: "Unknown",
+        dis: "已禁用",
+        not: "非默认SIM卡",
+        null: "未知",
     }[key],
 }));
 
 const StatusBarModeOptions = DemoModeStatusBarModes.map((key) => ({
     key,
     text: {
-        opaque: "Opaque",
-        translucent: "Translucent",
-        "semi-transparent": "Semi-transparent",
-        transparent: "Transparent",
-        warning: "Warning",
+        opaque: "不透明",
+        translucent: "半透明（translucent）",
+        "semi-transparent": "半透明（semi-transparent）",
+        transparent: "透明",
+        warning: "警告",
     }[key],
 }));
 
@@ -133,7 +133,7 @@ const FEATURES: FeatureDefinition[][] = [
     [
         {
             key: "batteryLevel",
-            label: "Battery Level",
+            label: "电池电量",
             type: "number",
             min: 0,
             max: 100,
@@ -144,7 +144,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "batteryCharging",
-            label: "Battery Charging",
+            label: "正在充电",
             type: "boolean",
             initial: false,
             onChange: (value) =>
@@ -152,7 +152,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "powerSaveMode",
-            label: "Power Save Mode",
+            label: "省电模式",
             type: "boolean",
             initial: false,
             onChange: (value) =>
@@ -162,7 +162,7 @@ const FEATURES: FeatureDefinition[][] = [
     [
         {
             key: "wifiSignalStrength",
-            label: "Wifi Signal Strength",
+            label: "WiFi信号强度",
             type: "select",
             options: SignalStrengthOptions,
             initial: DemoModeSignalStrength.Level4,
@@ -173,7 +173,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "airplaneMode",
-            label: "Airplane Mode",
+            label: "飞行模式",
             type: "boolean",
             initial: false,
             onChange: (value) =>
@@ -181,7 +181,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "mobileDataType",
-            label: "Mobile Data Type",
+            label: "移动数据类型",
             type: "select",
             options: MobileDataTypeOptions,
             initial: "lte",
@@ -192,7 +192,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "mobileSignalStrength",
-            label: "Mobile Signal Strength",
+            label: "移动信号强度",
             type: "select",
             options: SignalStrengthOptions,
             initial: DemoModeSignalStrength.Level4,
@@ -205,7 +205,7 @@ const FEATURES: FeatureDefinition[][] = [
     [
         {
             key: "statusBarMode",
-            label: "Status Bar Mode",
+            label: "状态栏模式",
             type: "select",
             options: StatusBarModeOptions,
             initial: "transparent",
@@ -216,7 +216,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "vibrateMode",
-            label: "Vibrate Mode Indicator",
+            label: "振动模式指示器",
             type: "boolean",
             initial: false,
             onChange: (value) =>
@@ -224,7 +224,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "bluetoothConnected",
-            label: "Bluetooth Indicator",
+            label: "蓝牙指示器",
             type: "boolean",
             initial: false,
             onChange: (value) =>
@@ -232,7 +232,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "locatingIcon",
-            label: "Locating Icon",
+            label: "正在定位图标",
             type: "boolean",
             initial: false,
             onChange: (value) =>
@@ -240,14 +240,14 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "alarmIcon",
-            label: "Alarm Icon",
+            label: "闹钟图标",
             type: "boolean",
             initial: false,
             onChange: (value) => state.demoMode!.setAlarmIcon(value as boolean),
         },
         {
             key: "notificationsVisibility",
-            label: "Notifications Visibility",
+            label: "通知可见性",
             type: "boolean",
             initial: true,
             onChange: (value) =>
@@ -255,7 +255,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "hour",
-            label: "Clock Hour",
+            label: "时钟-小时",
             type: "number",
             min: 0,
             max: 23,
@@ -269,7 +269,7 @@ const FEATURES: FeatureDefinition[][] = [
         },
         {
             key: "minute",
-            label: "Clock Minute",
+            label: "时钟-分钟",
             type: "number",
             min: 0,
             max: 59,
@@ -375,23 +375,23 @@ export const DemoModePanel = observer(({ style }: DemoModePanelProps) => {
     return (
         <div style={{ padding: 12, overflow: "hidden auto", ...style }}>
             <Toggle
-                label="Allowed"
+                label="允许"
                 disabled={!GLOBAL_STATE.adb}
                 checked={state.allowed}
                 onChange={handleAllowedChange}
             />
 
             <Toggle
-                label="Enabled"
+                label="启用"
                 disabled={!state.allowed}
                 checked={state.enabled}
                 onChange={handleEnabledChange}
             />
 
             <div>
-                <strong>Note:</strong>
+                <strong>提示：</strong>
             </div>
-            <div>Device may not support all options.</div>
+            <div>设备可能不支持所有选项。</div>
 
             {FEATURES.map((group, index) => (
                 <div key={index}>

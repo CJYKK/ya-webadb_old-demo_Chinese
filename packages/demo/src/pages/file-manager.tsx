@@ -147,7 +147,7 @@ class FileManagerState {
             });
         list.unshift({
             key: "/",
-            text: "Device",
+            text: "设备",
             onClick: () => this.pushPathQuery("/"),
         });
         list[list.length - 1].isCurrentItem = true;
@@ -162,7 +162,7 @@ class FileManagerState {
             case 0:
                 result.push({
                     key: "upload",
-                    text: "Upload",
+                    text: "上传",
                     iconProps: {
                         iconName: Icons.CloudArrowUp,
                         style: { height: 20, fontSize: 20, lineHeight: 1.5 },
@@ -185,7 +185,7 @@ class FileManagerState {
                 result.push(
                     {
                         key: "download",
-                        text: "Download",
+                        text: "下载",
                         iconProps: {
                             iconName: Icons.CloudArrowDown,
                             style: {
@@ -201,7 +201,7 @@ class FileManagerState {
                     },
                     {
                         key: "delete",
-                        text: "Delete",
+                        text: "删除",
                         iconProps: {
                             iconName: Icons.Delete,
                             style: {
@@ -285,7 +285,7 @@ class FileManagerState {
         const list: IColumn[] = [
             {
                 key: "type",
-                name: "File Type",
+                name: "文件类型",
                 iconName: Icons.Document20,
                 isIconOnly: true,
                 minWidth: ICON_SIZE,
@@ -335,7 +335,7 @@ class FileManagerState {
             },
             {
                 key: "name",
-                name: "Name",
+                name: "名称",
                 minWidth: 0,
                 isRowHeader: true,
                 onRender(item: AdbSyncEntry) {
@@ -348,7 +348,7 @@ class FileManagerState {
             },
             {
                 key: "permission",
-                name: "Permission",
+                name: "权限",
                 minWidth: 0,
                 isCollapsible: true,
                 onRender(item: AdbSyncEntry) {
@@ -360,7 +360,7 @@ class FileManagerState {
             },
             {
                 key: "size",
-                name: "Size",
+                name: "大小",
                 minWidth: 0,
                 isCollapsible: true,
                 onRender(item: AdbSyncEntry) {
@@ -372,7 +372,7 @@ class FileManagerState {
             },
             {
                 key: "mtime",
-                name: "Last Modified Time",
+                name: "最后修改时间",
                 minWidth: 150,
                 isCollapsible: true,
                 onRender(item: AdbSyncEntry) {
@@ -385,7 +385,7 @@ class FileManagerState {
             list.push(
                 {
                     key: "ctime",
-                    name: "Creation Time",
+                    name: "创建时间",
                     minWidth: 150,
                     isCollapsible: true,
                     onRender(item: AdbSyncEntry) {
@@ -396,7 +396,7 @@ class FileManagerState {
                 },
                 {
                     key: "atime",
-                    name: "Last Access Time",
+                    name: "最后访问时间",
                     minWidth: 150,
                     isCollapsible: true,
                     onRender(item: AdbSyncEntry) {
@@ -716,7 +716,7 @@ class FileManagerState {
                 });
 
                 console.log(
-                    "Upload speed:",
+                    "上传速度：",
                     (
                         ((file.size / (Date.now() - start)) * 1000) /
                         1024 /
@@ -752,7 +752,7 @@ const UploadDialog = observer(() => {
         <Dialog
             hidden={!state.uploading}
             dialogContentProps={{
-                title: "Uploading...",
+                title: "上传中……",
                 subText: state.uploadPath,
             }}
         >
@@ -871,7 +871,7 @@ const FileManager: NextPage = (): JSX.Element | null => {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>File Manager - Tango</title>
+                <title>文件管理器 - Tango</title>
             </Head>
 
             <CommandBar items={state.menuItems} />

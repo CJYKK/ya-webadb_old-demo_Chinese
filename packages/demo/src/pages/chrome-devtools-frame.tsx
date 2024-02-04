@@ -95,7 +95,7 @@ function ChromeDevToolsFrame() {
                 this._port.close();
             }
         } as typeof WebSocket;
-        console.log("WebSocket hooked");
+        console.log("WebSocket已连接");
 
         const script = document.createElement("script");
         script.type = "module";
@@ -113,8 +113,8 @@ function ChromeDevToolsFrame() {
             verticalAlign="center"
             horizontalAlign="center"
         >
-            <div>Loading DevTools...</div>
-            <div>(requires network connection)</div>
+            <div>正在加载DevTools……</div>
+            <div>（需要网络连接）</div>
         </Stack>
     );
 }

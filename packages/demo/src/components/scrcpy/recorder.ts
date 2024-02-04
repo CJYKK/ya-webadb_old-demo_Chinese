@@ -268,7 +268,7 @@ export class MatroskaMuxingRecorder {
 
     public addVideoPacket(packet: ScrcpyMediaStreamPacket) {
         if (!this.videoMetadata) {
-            throw new Error("videoMetadata must be set");
+            throw new Error("必须设置videoMetadata");
         }
 
         try {
@@ -345,7 +345,7 @@ export class MatroskaMuxingRecorder {
 
     public start() {
         if (!this.videoMetadata) {
-            throw new Error("videoMetadata must be set");
+            throw new Error("必须设置videoMetadata");
         }
 
         this.running = true;

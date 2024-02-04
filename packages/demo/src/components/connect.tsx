@@ -59,7 +59,7 @@ function ConnectCore(): JSX.Element | null {
 
             if (!supported) {
                 GLOBAL_STATE.showErrorDialog(
-                    "Your browser does not support WebUSB standard, which is required for this site to work.\n\nLatest version of Google Chrome, Microsoft Edge, or other Chromium-based browsers are required."
+                    "您的浏览器不支持WebUSB标准，然而这是此站点正常工作的基础。\n\n您需要使用最新版本的Google Chrome、Microsoft Edge或其它基于Chromium的浏览器。"
                 );
                 return;
             }
@@ -102,7 +102,7 @@ function ConnectCore(): JSX.Element | null {
     }, []);
 
     const addWebSocketDevice = useCallback(() => {
-        const address = window.prompt("Enter the address of WebSockify server");
+        const address = window.prompt("输入WebSockify服务器的地址");
         if (!address) {
             return;
         }
@@ -142,12 +142,12 @@ function ConnectCore(): JSX.Element | null {
     }, []);
 
     const addTcpDevice = useCallback(() => {
-        const host = window.prompt("Enter the address of device");
+        const host = window.prompt("输入设备的地址");
         if (!host) {
             return;
         }
 
-        const port = window.prompt("Enter the port of device", "5555");
+        const port = window.prompt("输入设备的端口", "5555");
         if (!port) {
             return;
         }
@@ -330,8 +330,8 @@ function ConnectCore(): JSX.Element | null {
         <Stack tokens={{ childrenGap: 8, padding: "0 0 8px 8px" }}>
             <Dropdown
                 disabled={!!GLOBAL_STATE.adb || deviceOptions.length === 0}
-                label="Available devices"
-                placeholder="No available devices"
+                label="可用设备"
+                placeholder="无可用的设备"
                 options={deviceOptions}
                 styles={DropdownStyles}
                 dropdownWidth={300}
@@ -344,7 +344,7 @@ function ConnectCore(): JSX.Element | null {
                     <StackItem grow shrink>
                         <PrimaryButton
                             iconProps={{ iconName: Icons.PlugConnected }}
-                            text="Connect"
+                            text="连接"
                             disabled={!selected}
                             primary={!!selected}
                             styles={{ root: { width: "100%" } }}
@@ -354,9 +354,9 @@ function ConnectCore(): JSX.Element | null {
                     <StackItem grow shrink>
                         <DefaultButton
                             iconProps={{ iconName: Icons.AddCircle }}
-                            text="Add"
+                            text="添加"
                             split
-                            splitButtonAriaLabel="Add other connection type"
+                            splitButtonAriaLabel="添加其他连接类型"
                             menuProps={addMenuProps}
                             disabled={!usbSupported}
                             primary={!selected}
@@ -368,7 +368,7 @@ function ConnectCore(): JSX.Element | null {
             ) : (
                 <DefaultButton
                     iconProps={{ iconName: Icons.PlugDisconnected }}
-                    text="Disconnect"
+                    text="断开连接"
                     onClick={disconnect}
                 />
             )}
@@ -376,8 +376,8 @@ function ConnectCore(): JSX.Element | null {
             <Dialog
                 hidden={!connecting}
                 dialogContentProps={{
-                    title: "Connecting...",
-                    subText: "Please authorize the connection on your device",
+                    title: "连接中……",
+                    subText: "请在您的设备上授权连接",
                 }}
             >
                 <ProgressIndicator />

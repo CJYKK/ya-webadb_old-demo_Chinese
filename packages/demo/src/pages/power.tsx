@@ -19,12 +19,12 @@ const Power: NextPage = () => {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>Power Menu - Tango</title>
+                <title>电源菜单 - Tango</title>
             </Head>
 
             <div>
                 <DefaultButton
-                    text="Reboot"
+                    text="重启"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.reboot()}
                 />
@@ -32,7 +32,7 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Power Off"
+                    text="关机"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.powerOff()}
                 />
@@ -40,7 +40,7 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Press Power Button"
+                    text="按下电源按钮"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.powerButton()}
                 />
@@ -51,13 +51,13 @@ const Power: NextPage = () => {
                     messageBarType={MessageBarType.severeWarning}
                     delayedRender={false}
                 >
-                    Danger Zone Below
+                    下方为危险区
                 </MessageBar>
             </div>
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Reboot to Bootloader"
+                    text="重启到Bootloader"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.bootloader()}
                 />
@@ -65,7 +65,7 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Reboot to Fastboot"
+                    text="重启到Fastboot"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.fastboot()}
                 />
@@ -73,7 +73,7 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Reboot to Recovery"
+                    text="重启到Recovery"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.recovery()}
                 />
@@ -81,7 +81,7 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Reboot to Sideload"
+                    text="重启到Sideload"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.sideload()}
                 />
@@ -89,12 +89,12 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Reboot to Qualcomm EDL Mode"
+                    text="重启到高通EDL模式"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.qualcommEdlMode()}
                 />
                 <TooltipHost
-                    content={<span>Only works on some Qualcomm devices.</span>}
+                    content={<span>仅适用于某些高通设备。</span>}
                 >
                     <Icon
                         style={{
@@ -109,12 +109,12 @@ const Power: NextPage = () => {
 
             <div style={{ marginTop: 20 }}>
                 <DefaultButton
-                    text="Reboot to Samsung Odin Download Mode"
+                    text="重启到三星Odin Download模式"
                     disabled={!GLOBAL_STATE.adb}
                     onClick={() => GLOBAL_STATE.adb!.power.samsungOdin()}
                 />
                 <TooltipHost
-                    content={<span>Only works on Samsung devices.</span>}
+                    content={<span>仅适用于三星设备。</span>}
                 >
                     <Icon
                         style={{

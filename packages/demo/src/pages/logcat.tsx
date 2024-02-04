@@ -189,20 +189,20 @@ const state = makeAutoObservable(
                 this.running
                     ? {
                           key: "stop",
-                          text: "Stop",
+                          text: "停止",
                           iconProps: { iconName: Icons.Stop },
                           onClick: () => this.stop(),
                       }
                     : {
                           key: "start",
-                          text: "Start",
+                          text: "开始",
                           disabled: this.logcat === undefined,
                           iconProps: { iconName: Icons.Play },
                           onClick: () => this.start(),
                       },
                 {
                     key: "clear",
-                    text: "Clear",
+                    text: "清空",
                     disabled: this.empty,
                     iconProps: { iconName: Icons.Delete },
                     onClick: () => this.clear(),
@@ -211,7 +211,7 @@ const state = makeAutoObservable(
                     key: "select-all",
                     disabled: this.empty,
                     iconProps: { iconName: Icons.Wand },
-                    text: "Select All",
+                    text: "全选",
                     onClick: action(() => {
                         this.selection.clear();
                         this.selection.select(
@@ -223,7 +223,7 @@ const state = makeAutoObservable(
                 },
                 {
                     key: "copy",
-                    text: "Copy Selected",
+                    text: "复制选中的",
                     disabled: this.selection.size === 0,
                     iconProps: { iconName: Icons.Copy },
                     onClick: () => {
@@ -238,7 +238,7 @@ const state = makeAutoObservable(
                 },
                 {
                     key: "save",
-                    text: "Save Selected",
+                    text: "保存选中的",
                     disabled: this.selection.size === 0,
                     iconProps: { iconName: Icons.Save },
                     onClick: () => {
@@ -272,12 +272,12 @@ const state = makeAutoObservable(
                 {
                     key: "format",
                     iconProps: { iconName: Icons.TextGrammarSettings },
-                    text: "Format",
+                    text: "格式",
                     subMenuProps: {
                         items: [
                             {
                                 key: "format",
-                                text: "Format",
+                                text: "格式",
                                 itemType: ContextualMenuItemType.Header,
                             },
                             {
@@ -396,7 +396,7 @@ const state = makeAutoObservable(
 
                             {
                                 key: "modifiers",
-                                text: "Modifiers",
+                                text: "修饰符",
                                 itemType: ContextualMenuItemType.Header,
                             },
                             {
@@ -426,7 +426,7 @@ const state = makeAutoObservable(
 
                             {
                                 key: "time-header",
-                                text: "Time Format",
+                                text: "时间格式",
                                 itemType: ContextualMenuItemType.Header,
                             },
                             {
@@ -488,7 +488,7 @@ const state = makeAutoObservable(
 
                             {
                                 key: "nanosecondFormat",
-                                text: "Nanosecond Format",
+                                text: "纳秒格式",
                                 itemType: ContextualMenuItemType.Header,
                             },
                             {
@@ -544,7 +544,7 @@ const state = makeAutoObservable(
             return [
                 {
                     width: 200,
-                    title: "Time",
+                    title: "时间",
                     CellComponent: ({
                         rowIndex,
                         columnIndex,
@@ -627,7 +627,7 @@ const state = makeAutoObservable(
                 },
                 {
                     width: 80,
-                    title: "Priority",
+                    title: "优先级",
                     CellComponent: ({
                         rowIndex,
                         columnIndex,
@@ -653,7 +653,7 @@ const state = makeAutoObservable(
                 },
                 {
                     width: 300,
-                    title: "Tag",
+                    title: "标签",
                     CellComponent: ({
                         rowIndex,
                         columnIndex,
@@ -680,7 +680,7 @@ const state = makeAutoObservable(
                 {
                     width: 300,
                     flexGrow: 1,
-                    title: "Message",
+                    title: "信息",
                     CellComponent: ({
                         rowIndex,
                         columnIndex,

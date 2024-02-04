@@ -143,7 +143,7 @@ export class ScrcpyPageState {
 
         try {
             if (!SETTING_STATE.clientSettings.decoder) {
-                throw new Error("No available decoder");
+                throw new Error("无可用的解码器");
             }
 
             runInAction(() => {
@@ -264,9 +264,9 @@ export class ScrcpyPageState {
 
             runInAction(() => {
                 this.log = [];
-                this.log.push(`[client] Server version: ${VERSION}`);
+                this.log.push(`[客户端] 服务器版本：${VERSION}`);
                 this.log.push(
-                    `[client] Server arguments: ${options
+                    `[客户端] 服务器参数：${options
                         .serialize()
                         .join(" ")}`,
                 );
@@ -377,12 +377,12 @@ export class ScrcpyPageState {
                                         h265ParseConfiguration(packet.data));
                                     break;
                                 default:
-                                    throw new Error("Codec not supported");
+                                    throw new Error("编码不支持");
                             }
 
                             runInAction(() => {
                                 this.log.push(
-                                    `[client] Video size changed: ${croppedWidth}x${croppedHeight}`,
+                                    `[客户端] 视频尺寸已改变：${croppedWidth}x${croppedHeight}`,
                                 );
                                 this.width = croppedWidth;
                                 this.height = croppedHeight;
@@ -397,7 +397,7 @@ export class ScrcpyPageState {
                                     0;
                                 runInAction(() => {
                                     this.log.push(
-                                        `[client] Keyframe interval: ${interval}ms`,
+                                        `[客户端] 关键帧间隔：${interval}ms`,
                                     );
                                 });
                             }
@@ -414,14 +414,14 @@ export class ScrcpyPageState {
                     case "disabled":
                         runInAction(() =>
                             this.log.push(
-                                `[client] Demuxer audio: stream explicitly disabled by the device`,
+                                `[客户端] 分离音频：设备明确禁用了音频流`,
                             ),
                         );
                         return;
                     case "errored":
                         runInAction(() =>
                             this.log.push(
-                                `[client] Demuxer audio: stream configuration error on the device`,
+                                `[客户端] 分离音频：设备上发生了音频流配置错误`,
                             ),
                         );
                         return;
@@ -430,7 +430,7 @@ export class ScrcpyPageState {
                         break;
                     default:
                         throw new Error(
-                            `Unexpected audio metadata type ${
+                            `意外的音频元数据类型${
                                 metadata["type"] as unknown as string
                             }`,
                         );
@@ -506,7 +506,7 @@ export class ScrcpyPageState {
                     }
                     default:
                         throw new Error(
-                            `Unsupported audio codec ${metadata.codec.optionValue}`,
+                            `不支持的音频编码器${metadata.codec.optionValue}`,
                         );
                 }
 

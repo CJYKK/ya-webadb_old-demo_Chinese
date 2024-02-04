@@ -13,28 +13,28 @@ import { GLOBAL_STATE } from "../state";
 import { Icons, RouteStackProps } from "../utils";
 
 const KNOWN_FEATURES: Record<string, string> = {
-    [AdbFeature.ShellV2]: `"shell" command now supports separating child process's stdout and stderr, and returning exit code`,
+    [AdbFeature.ShellV2]: `“shell”命令现在支持将子进程的stdout和stderr分开，并返回退出码`,
     // 'cmd': '',
     [AdbFeature.StatV2]:
-        '"sync" command now supports "STA2" (returns more information of a file than old "STAT") and "LST2" (returns information of a directory) sub command',
+        '“sync”命令现在支持“STA2”（返回比旧版“STAT”更多的文件信息）和“LST2”（返回目录信息）子命令',
     [AdbFeature.ListV2]:
-        '"sync" command now supports "LST2" sub command which returns more information when listing a directory than old "LIST"',
+        '“sync”命令现在支持“LST2”子命令，相对于旧版的“LIST”，它能够在列出目录时提供更多信息',
     [AdbFeature.FixedPushMkdir]:
-        "Android 9 (P) introduced a bug that pushing files to a non-existing directory would fail. This feature indicates it's fixed (Android 10)",
+        "Android 9（P）引入了一个问题，将文件推送到不存在的目录时会失败。此功能表示该问题已修复（Android 10）",
     // 'apex': '',
     // 'abb': '',
     // 'fixed_push_symlink_timestamp': '',
     [AdbFeature.AbbExec]:
-        'Supports "abb_exec" variant that can be used to install App faster',
+        '支持“abb_exec”的变体，可用于更快地安装应用程序',
     // 'remount_shell': '',
     // 'track_app': '',
     // 'sendrecv_v2': '',
     sendrecv_v2_brotli:
-        'Supports "brotli" compression algorithm when pushing/pulling files',
+        '在推送/拉取文件时支持“brotli”压缩算法',
     sendrecv_v2_lz4:
-        'Supports "lz4" compression algorithm when pushing/pulling files',
+        '在推送/拉取文件时支持“lz4”压缩算法',
     sendrecv_v2_zstd:
-        'Supports "zstd" compression algorithm when pushing/pulling files',
+        '在推送/拉取文件时支持“zstd”压缩算法',
     // 'sendrecv_v2_dry_run_send': '',
 };
 
@@ -42,46 +42,46 @@ const DeviceInfo: NextPage = () => {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>Device Info - Tango</title>
+                <title>设备信息 - Tango</title>
             </Head>
 
             <MessageBar delayedRender={false}>
+                <span>Android构建属性中的</span>
                 <code>ro.product.name</code>
-                <span> field in Android Build Props</span>
+                <span>字段</span>
             </MessageBar>
-            <span>Product Name: {GLOBAL_STATE.adb?.banner.product}</span>
+            <span>产品名称：{GLOBAL_STATE.adb?.banner.product}</span>
             <Separator />
 
             <MessageBar delayedRender={false}>
+                <span>Android构建属性中的</span>
                 <code>ro.product.model</code>
-                <span> field in Android Build Props</span>
+                <span>字段</span>
             </MessageBar>
-            <span>Model Name: {GLOBAL_STATE.adb?.banner.model}</span>
+            <span>型号名称：{GLOBAL_STATE.adb?.banner.model}</span>
             <Separator />
 
             <MessageBar delayedRender={false}>
+                <span>Android构建属性中的</span>
                 <code>ro.product.device</code>
-                <span> field in Android Build Props</span>
+                <span>字段</span>
             </MessageBar>
-            <span>Device Name: {GLOBAL_STATE.adb?.banner.device}</span>
+            <span>设备名称：{GLOBAL_STATE.adb?.banner.device}</span>
             <Separator />
 
             <MessageBar delayedRender={false}>
                 <span>
-                    Feature list decides how each individual commands should
-                    behavior.
+                    功能列表决定了每个单独命令的行为方式。
                 </span>
                 <br />
 
                 <span>
-                    For example, it may indicate the availability of a new
-                    command,{" "}
+                    例如，它可能表示一个新命令的可用性，或者因为已经修复了一个旧bug，所以不再需要绕过它。
                 </span>
-                <span>{`or a workaround for an old bug is not required because it's already been fixed.`}</span>
                 <br />
             </MessageBar>
             <span>
-                <span>Features: </span>
+                <span>功能列表：</span>
                 {GLOBAL_STATE.adb?.banner.features.map((feature, index) => (
                     <span key={feature}>
                         {index !== 0 && <span>, </span>}

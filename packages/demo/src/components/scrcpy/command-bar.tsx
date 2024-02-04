@@ -21,7 +21,7 @@ const ITEMS = computed(() => {
     result.push({
         key: "stop",
         iconProps: { iconName: Icons.Stop },
-        text: "Stop",
+        text: "停止",
         onClick: STATE.stop as VoidFunction,
     });
 
@@ -52,7 +52,7 @@ const ITEMS = computed(() => {
                   key: "Record",
                   disabled: !STATE.running,
                   iconProps: { iconName: Icons.Record },
-                  text: "Record",
+                  text: "录制",
                   onClick: action(() => {
                       STATE.fullScreenContainer!.focus();
 
@@ -67,7 +67,7 @@ const ITEMS = computed(() => {
         disabled: !STATE.running,
         iconProps: { iconName: Icons.FullScreenMaximize },
         iconOnly: true,
-        text: "Fullscreen",
+        text: "全屏",
         onClick: action(() => {
             STATE.fullScreenContainer!.focus();
 
@@ -82,7 +82,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.Speaker2 },
             iconOnly: true,
-            text: "Volume Up",
+            text: "音量 +",
             onClick: (async () => {
                 STATE.fullScreenContainer!.focus();
 
@@ -106,7 +106,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.Speaker1 },
             iconOnly: true,
-            text: "Volume Down",
+            text: "音量 -",
             onClick: (async () => {
                 STATE.fullScreenContainer!.focus();
 
@@ -129,7 +129,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.SpeakerOff },
             iconOnly: true,
-            text: "Toggle Mute",
+            text: "切换静音模式",
             onClick: (async () => {
                 STATE.fullScreenContainer!.focus();
 
@@ -155,7 +155,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.Orientation },
             iconOnly: true,
-            text: "Rotate Device",
+            text: "旋转设备",
             onClick: () => {
                 STATE.fullScreenContainer!.focus();
 
@@ -167,7 +167,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.RotateLeft },
             iconOnly: true,
-            text: "Rotate Video Left",
+            text: "向左旋转视频",
             onClick: action(() => {
                 STATE.fullScreenContainer!.focus();
 
@@ -182,7 +182,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.RotateRight },
             iconOnly: true,
-            text: "Rotate Video Right",
+            text: "向右旋转视频",
             onClick: action(() => {
                 STATE.fullScreenContainer!.focus();
 
@@ -197,7 +197,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.Lightbulb },
             iconOnly: true,
-            text: "Turn Screen Off",
+            text: "关闭屏幕",
             onClick: () => {
                 STATE.fullScreenContainer!.focus();
 
@@ -211,7 +211,7 @@ const ITEMS = computed(() => {
             disabled: !STATE.running,
             iconProps: { iconName: Icons.LightbulbFilament },
             iconOnly: true,
-            text: "Turn Screen On",
+            text: "打开屏幕",
             onClick: () => {
                 STATE.fullScreenContainer!.focus();
 
@@ -225,7 +225,7 @@ const ITEMS = computed(() => {
     if (STATE.running) {
         result.push({
             key: "fps",
-            text: `FPS: ${STATE.fps}`,
+            text: `FPS：${STATE.fps}`,
             disabled: true,
         });
     }
@@ -252,7 +252,7 @@ const ITEMS = computed(() => {
             iconProps: { iconName: Icons.PanelBottom },
             canCheck: true,
             checked: STATE.navigationBarVisible,
-            text: "Navigation Bar",
+            text: "导航栏",
             iconOnly: true,
             onClick: action(() => {
                 STATE.navigationBarVisible = !STATE.navigationBarVisible;
@@ -263,7 +263,7 @@ const ITEMS = computed(() => {
             iconProps: { iconName: Icons.TextGrammarError },
             canCheck: true,
             checked: STATE.logVisible,
-            text: "Log",
+            text: "日志",
             iconOnly: true,
             onClick: action(() => {
                 STATE.logVisible = !STATE.logVisible;
@@ -274,7 +274,7 @@ const ITEMS = computed(() => {
             iconProps: { iconName: Icons.Wand },
             canCheck: true,
             checked: STATE.demoModeVisible,
-            text: "Demo Mode",
+            text: "演示模式",
             iconOnly: true,
             onClick: action(() => {
                 STATE.demoModeVisible = !STATE.demoModeVisible;

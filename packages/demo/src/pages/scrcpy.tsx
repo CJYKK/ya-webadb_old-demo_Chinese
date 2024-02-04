@@ -80,11 +80,11 @@ const ConnectingDialog = observer(() => {
             <Dialog
                 hidden={!STATE.connecting}
                 modalProps={{ layerProps: { hostId: layerHostId } }}
-                dialogContentProps={{ title: "Connecting..." }}
+                dialogContentProps={{ title: "连接中……" }}
             >
                 <Stack tokens={CommonStackTokens}>
                     <ProgressIndicator
-                        label="Downloading scrcpy server..."
+                        label="正在下载scrcpy服务器……"
                         percentComplete={
                             STATE.serverTotalSize
                                 ? STATE.serverDownloadedSize /
@@ -99,7 +99,7 @@ const ConnectingDialog = observer(() => {
                     />
 
                     <ProgressIndicator
-                        label="Pushing scrcpy server to device..."
+                        label="正在推送scrcpy服务器到设备上……"
                         progressHidden={
                             STATE.serverTotalSize === 0 ||
                             STATE.serverDownloadedSize !== STATE.serverTotalSize
@@ -115,7 +115,7 @@ const ConnectingDialog = observer(() => {
                     />
 
                     <ProgressIndicator
-                        label="Starting scrcpy server on device..."
+                        label="正在设备上启动scrcpy服务器……"
                         progressHidden={
                             STATE.serverTotalSize === 0 ||
                             STATE.serverUploadedSize !== STATE.serverTotalSize
@@ -170,10 +170,10 @@ const FullscreenHint = observer(function FullscreenHint({
 
             <div className={classes.spacer} />
 
-            <div>Press and hold ESC to exit full screen</div>
+            <div>按住ESC键退出全屏模式</div>
 
             <Link onClick={() => setHintHidden("true")}>
-                {`Don't show again`}
+                {`不再提示`}
             </Link>
         </div>
     );
@@ -287,21 +287,18 @@ const Scrcpy: NextPage = () => {
                     <div>
                         <ExternalLink
                             href="https://github.com/Genymobile/scrcpy"
-                            spaceAfter
                         >
                             Scrcpy
                         </ExternalLink>
-                        can mirror device display and audio with low latency and
-                        control the device, all without root access.
+                        可以在没有root访问权限的情况下以低延迟镜像设备的显示和音频，并对设备进行控制。
                     </div>
                     <div>
-                        This is a TypeScript re-implementation of the client
-                        part. Paired with official pre-built server binary.
+                    这是客户端部分的TypeScript重新实现，与官方预构建的服务器二进制文件配合使用。
                     </div>
 
                     <StackItem align="start">
                         <PrimaryButton
-                            text="Start"
+                            text="启动"
                             disabled={!GLOBAL_STATE.adb}
                             onClick={STATE.start}
                         />

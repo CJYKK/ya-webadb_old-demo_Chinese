@@ -99,20 +99,20 @@ const BugReportPage: NextPage = () => {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>BugReport - Tango</title>
+                <title>错误报告 - Tango</title>
             </Head>
 
             <MessageBar
                 messageBarType={MessageBarType.info}
                 delayedRender={false}
             >
-                This is the `bugreport`/`bugreportz` tool in Android
+                这是Android中的`bugreport`/`bugreportz`工具
             </MessageBar>
 
             <StackItem>
                 <PrimaryButton
                     disabled={!state.bugReport}
-                    text="Generate BugReport"
+                    text="生成错误报告"
                     onClick={state.generateBugReport}
                 />
             </StackItem>
@@ -120,7 +120,7 @@ const BugReportPage: NextPage = () => {
             <StackItem>
                 <PrimaryButton
                     disabled={!state.bugReport?.supportsBugReportZStream}
-                    text="Generate Zipped BugReport (Streaming)"
+                    text="生成压缩的错误报告（数据流）"
                     onClick={state.generateBugReportZStream}
                 />
             </StackItem>
@@ -137,7 +137,7 @@ const BugReportPage: NextPage = () => {
                                 !state.bugReport?.supportsBugReportZ ||
                                 state.bugReportZInProgress
                             }
-                            text="Generate Zipped BugReport"
+                            text="生成压缩的错误报告"
                             onClick={state.generateBugReportZ}
                         />
                     </StackItem>
@@ -146,15 +146,15 @@ const BugReportPage: NextPage = () => {
                         <StackItem>
                             {state.bugReportZTotalSize ? (
                                 <span>
-                                    Progress: {state.bugReportZProgress} /{" "}
+                                    进度：{state.bugReportZProgress} /{" "}
                                     {state.bugReportZTotalSize}
                                 </span>
                             ) : (
                                 <span>
-                                    Generating... Please wait
+                                    生成中……请稍候
                                     {!state.bugReport!
                                         .supportsBugReportZProgress &&
-                                        " (this device does not support progress)"}
+                                        "（该设备不支持进度显示）"}
                                 </span>
                             )}
                         </StackItem>

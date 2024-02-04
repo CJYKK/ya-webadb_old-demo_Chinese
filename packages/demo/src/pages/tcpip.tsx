@@ -52,14 +52,14 @@ class TcpIpState {
                 key: "refresh",
                 disabled: !GLOBAL_STATE.adb,
                 iconProps: { iconName: Icons.ArrowClockwise },
-                text: "Refresh",
+                text: "刷新",
                 onClick: this.queryInfo as VoidFunction,
             },
             {
                 key: "apply",
                 disabled: !GLOBAL_STATE.adb,
                 iconProps: { iconName: Icons.Save },
-                text: "Apply",
+                text: "应用",
                 onClick: this.applyServicePort,
             },
         ];
@@ -177,23 +177,20 @@ const TcpIp: NextPage = () => {
             <StackItem>
                 <MessageBar delayedRender={false}>
                     <Text>
-                        For Tango to wirelessly connect to your device,
+                        要让Tango无线连接到您的设备，需要
                         <ExternalLink
                             href="https://github.com/yume-chan/ya-webadb/discussions/245#discussioncomment-384030"
-                            spaceBefore
-                            spaceAfter
                         >
-                            extra software
+                            额外的软件
                         </ExternalLink>
-                        is required.
+                        。
                     </Text>
                 </MessageBar>
             </StackItem>
             <StackItem>
                 <MessageBar delayedRender={false}>
                     <Text>
-                        Your device will disconnect after changing ADB over WiFi
-                        config.
+                        更改ADB over WiFi配置后，您的设备将断开连接。
                     </Text>
                 </MessageBar>
             </StackItem>
@@ -204,8 +201,8 @@ const TcpIp: NextPage = () => {
                     label="service.adb.listen_addrs"
                     disabled
                     checked={!!state.serviceListenAddresses}
-                    onText="Enabled"
-                    offText="Disabled"
+                    onText="已启用"
+                    offText="已禁用"
                 />
                 {state.serviceListenAddresses?.map((address) => (
                     <TextField
@@ -225,8 +222,8 @@ const TcpIp: NextPage = () => {
                     disabled={
                         !GLOBAL_STATE.adb || !!state.serviceListenAddresses
                     }
-                    onText="Enabled"
-                    offText="Disabled"
+                    onText="已启用"
+                    offText="已禁用"
                     onChange={handleServicePortEnabledChange}
                 />
                 <TextField
@@ -245,8 +242,8 @@ const TcpIp: NextPage = () => {
                     label="persist.adb.tcp.port"
                     disabled
                     checked={state.persistPortEnabled}
-                    onText="Enabled"
-                    offText="Disabled"
+                    onText="已启用"
+                    offText="已禁用"
                 />
                 {state.persistPort && (
                     <TextField

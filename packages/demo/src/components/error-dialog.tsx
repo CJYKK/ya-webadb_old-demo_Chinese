@@ -17,13 +17,13 @@ export const ErrorDialogProvider = observer((props: PropsWithChildren<{}>) => {
                 hidden={!GLOBAL_STATE.errorDialogVisible}
                 dialogContentProps={{
                     type: DialogType.normal,
-                    title: "Error",
+                    title: "错误",
                     subText: GLOBAL_STATE.errorDialogMessage,
                 }}
             >
                 <DialogFooter>
                     <PrimaryButton
-                        text="OK"
+                        text="确定"
                         onClick={GLOBAL_STATE.hideErrorDialog}
                     />
                 </DialogFooter>

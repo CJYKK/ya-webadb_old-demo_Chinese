@@ -5,11 +5,11 @@ import { RouteStackProps } from "../utils";
 
 {/* cspell: ignore cybojenix */}
 
-This is a demo for my <ExternalLink href="https://github.com/yume-chan/ya-webadb/">ya-webadb</ExternalLink> project, which can use ADB protocol to control Android phones, directly from Web browsers (or Node.js).
+这是我<ExternalLink href="https://github.com/yume-chan/ya-webadb/">ya-webadb</ExternalLink>项目的演示，它可以使用ADB协议直接从Web浏览器（或Node.js）控制Android手机。
 
-It started because I want to try the <ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/API/USB">WebUSB</ExternalLink> API, and because I have an Android phone. It's not production-ready, and I don't recommend normal users to try it. If you have any questions or suggestions, please file an issue at <ExternalLink href="https://github.com/yume-chan/ya-webadb/issues">here</ExternalLink>.
+这个项目的起因是我想尝试使用<ExternalLink href="https://developer.mozilla.org/en-US/docs/Web/API/USB">WebUSB</ExternalLink> API，并且我有一部Android手机。它目前尚未达到生产就绪状态，我不建议普通用户使用。如果您有任何问题或建议，请在<ExternalLink href="https://github.com/yume-chan/ya-webadb/issues">这里</ExternalLink>提交。
 
-It was called "ya-webadb" (Yet Another WebADB), because there have already been several similar projects, for example:
+它被称为“ya-webadb”（Yet Another WebADB，另一个WebADB），因为已经有了几个类似的项目。例如：
 
 -   <ExternalLink href="https://github.com/webadb/webadb.js">
         webadb/webadb.js
@@ -18,35 +18,35 @@ It was called "ya-webadb" (Yet Another WebADB), because there have already been 
         cybojenix/WebADB
     </ExternalLink>
 
-However, they are all pretty simple and not maintained, so I decided to make my own.
+然而，它们都相当简单且未得到维护，因此我决定制作自己的版本。
 
-## Security concerns
+## 安全问题
 
-Accessing USB devices (especially your phone) directly from a web page can be **very dangerous**. Firefox developers even refused to implement the WebUSB standard because they <ExternalLink href="https://mozilla.github.io/standards-positions/#webusb">considered it to be **harmful**</ExternalLink>.
+从网页直接访问USB设备（尤其是您的手机）可能**非常危险**。Firefox的开发人员甚至拒绝实现WebUSB标准，因为他们<ExternalLink href="https://mozilla.github.io/standards-positions/#webusb">认为它是**有害的**</ExternalLink>。
 
-However, I'm pretty confident about this demo, and here is a few reasons:
+然而，我对这个演示相当有信心，以下是几点原因：
 
-1. Unlike native apps, web apps can't access your devices silently. In addition to the connection verification popup that comes with ADB, browsers ask users for permission and web apps can only access the device you choose.
-2. All source code of this project is open sourced on <ExternalLink href="https://github.com/yume-chan/tango-server">GitHub</ExternalLink>. You can review it yourself (or find someone you trust and knows coding to review it).
-3. This site is built and deployed by <ExternalLink href="https://github.com/tango-adb/old-demo/blob/main/.github/workflows/deploy.yml" spaceAfter>GitHub Actions</ExternalLink> to ensure that what you see is exactly the same as the source code.
+1. 与本地应用程序不同，Web应用程序无法在不经用户允许的情况下静默访问您的设备。除了设备自带的ADB连接验证弹窗之外，浏览器也会向用户请求权限，而且Web应用程序只能访问您选择的设备；
+2. 该项目的所有源代码都在<ExternalLink href="https://github.com/yume-chan/tango-server">GitHub</ExternalLink>上开源。您可以自行审查（或找值得信任且了解编程的人来审查）；
+3. 该网站是通过<ExternalLink href="https://github.com/tango-adb/old-demo/blob/main/.github/workflows/deploy.yml">GitHub Actions</ExternalLink>构建和部署的，以确保您所看到的与源代码完全一致。
 
-## Compatibility
+## 兼容性
 
-Currently, only Chromium-based browsers (Chrome, Microsoft Edge, Opera) support the WebUSB API. As mentioned before, it's unlikely for Firefox to implement it.
+目前，只有基于Chromium的浏览器（如Chrome、Microsoft Edge和Opera）支持WebUSB API。正如之前所提到的，Firefox实现这一API的可能性较小。
 
-## FAQ
+## 常见问题解答
 
-### Got "Unable to claim interface" error
+### 遇到“Unable to claim interface”错误
 
-One USB device can only be accessed by one application at a time. Please make sure:
+一个USB设备同时只能被一个应用程序访问。请确保：
 
-1. Official ADB server is not running (stop it by `adb kill-server`).
-2. No other Android management tools are running.
-3. No other WebADB tabs have already connected to your device.
+1. 官方ADB服务器未在运行（通过`adb kill-server`停止它）。
+2. 没有其他Android管理工具正在运行。
+3. 没有其他WebADB标签页已连接到您的设备。
 
-### Can I connect my device wirelessly (ADB over WiFi)?
+### 我可以通过无线连接（ADB over WiFi）吗？
 
-Extra software is required to bridge the connection. See <ExternalLink href="https://github.com/yume-chan/ya-webadb/discussions/245#discussioncomment-384030">this discussion</ExternalLink>.
+需要额外的软件来桥接连接，请参阅<ExternalLink href="https://github.com/yume-chan/ya-webadb/discussions/245#discussioncomment-384030">这个discussion</ExternalLink>。
 
 export default ({ children }) => (
     <div style={{ height: "100%", padding: "0 16px", overflow: "auto" }}>

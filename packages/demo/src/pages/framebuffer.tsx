@@ -50,7 +50,7 @@ const FrameBuffer: NextPage = (): JSX.Element | null => {
             const start = Date.now();
             const framebuffer = await GLOBAL_STATE.adb.framebuffer();
             console.log(
-                "Framebuffer speed",
+                "Framebuffer速度：",
                 (
                     (((AdbFrameBufferV2.size + framebuffer.size) /
                         (Date.now() - start)) *
@@ -86,7 +86,7 @@ const FrameBuffer: NextPage = (): JSX.Element | null => {
                 iconName: Icons.Camera,
                 style: { height: 20, fontSize: 20, lineHeight: 1.5 },
             },
-            text: "Capture",
+            text: "捕获",
             onClick: capture,
         },
         {
@@ -96,7 +96,7 @@ const FrameBuffer: NextPage = (): JSX.Element | null => {
                 iconName: Icons.Save,
                 style: { height: 20, fontSize: 20, lineHeight: 1.5 },
             },
-            text: "Save",
+            text: "保存",
             onClick: () => {
                 const canvas = canvasRef.current;
                 if (!canvas) {
@@ -120,7 +120,7 @@ const FrameBuffer: NextPage = (): JSX.Element | null => {
                 style: { height: 20, fontSize: 20, lineHeight: 1.5 },
             },
             checked: state.demoModeVisible,
-            text: "Demo Mode",
+            text: "演示模式",
             onClick: state.toggleDemoModeVisible,
         },
         {
@@ -132,7 +132,7 @@ const FrameBuffer: NextPage = (): JSX.Element | null => {
             iconOnly: true,
             tooltipHostProps: {
                 content:
-                    "Use ADB FrameBuffer command to capture a full-size, high-resolution screenshot.",
+                    "使用ADB FrameBuffer命令捕获全尺寸、高分辨率的屏幕截图。",
                 calloutProps: {
                     calloutMaxWidth: 250,
                 },
@@ -143,7 +143,7 @@ const FrameBuffer: NextPage = (): JSX.Element | null => {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>Screen Capture - Tango</title>
+                <title>屏幕捕获 - Tango</title>
             </Head>
 
             <CommandBar

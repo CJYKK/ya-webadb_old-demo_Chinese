@@ -124,7 +124,7 @@ class InstallPageState {
             1024 /
             1024
         ).toFixed(2);
-        this.log += `Install finished in ${elapsed}ms at ${transferRate}MB/s`;
+        this.log += `安装完成，耗时${elapsed}毫秒，传输速率${transferRate}MB/s`;
 
         runInAction(() => {
             this.progress = {
@@ -145,12 +145,12 @@ const Install: NextPage = () => {
     return (
         <Stack {...RouteStackProps}>
             <Head>
-                <title>Install APK - Tango</title>
+                <title>安装APK - Tango</title>
             </Head>
 
             <Stack horizontal>
                 <Checkbox
-                    label="--bypass-low-target-sdk-block (Android 14)"
+                    label="--bypass-low-target-sdk-block（Android 14）"
                     checked={state.options.bypassLowTargetSdkBlock}
                     onChange={(_, checked) => {
                         if (checked === undefined) {
@@ -166,7 +166,7 @@ const Install: NextPage = () => {
             <Stack horizontal>
                 <PrimaryButton
                     disabled={!GLOBAL_STATE.adb || state.installing}
-                    text="Browse APK"
+                    text="浏览APK"
                     onClick={state.install}
                 />
             </Stack>

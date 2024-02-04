@@ -271,25 +271,25 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "settings",
             key: "powerOn",
             type: "toggle",
-            label: "Wake device up on start",
+            label: "启动时唤醒设备",
         },
         {
             group: "clientSettings",
             key: "turnScreenOff",
             type: "toggle",
-            label: "Turn screen off during mirroring",
+            label: "镜像时关闭屏幕",
         },
         {
             group: "settings",
             key: "stayAwake",
             type: "toggle",
-            label: "Stay awake during mirroring (if plugged in)",
+            label: "镜像时保持唤醒状态（需要连接电源）",
         },
         {
             group: "settings",
             key: "powerOffOnClose",
             type: "toggle",
-            label: "Turn device off on stop",
+            label: "在停止时关闭设备",
         }
     );
 
@@ -297,13 +297,13 @@ export const SETTING_DEFINITIONS = computed(() => {
         group: "settings",
         key: "displayId",
         type: "dropdown",
-        label: "Display",
-        placeholder: "Press refresh to update available displays",
+        label: "显示",
+        placeholder: "按下刷新以更新可用显示设备",
         labelExtra: (
             <IconButton
                 iconProps={{ iconName: Icons.ArrowClockwise }}
                 disabled={!GLOBAL_STATE.adb}
-                text="Refresh"
+                text="刷新"
                 onClick={async () => {
                     try {
                         await STATE.pushServer();
@@ -349,7 +349,7 @@ export const SETTING_DEFINITIONS = computed(() => {
         group: "settings",
         key: "crop",
         type: "text",
-        label: "Crop",
+        label: "裁剪",
         placeholder: "W:H:X:Y",
     });
 
@@ -358,7 +358,7 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "settings",
             key: "maxSize",
             type: "number",
-            label: "Max Resolution (longer side, 0 = unlimited)",
+            label: "最大分辨率（较长一侧，0 = 无限制）",
             min: 0,
             max: 2560,
             step: 50,
@@ -367,7 +367,7 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "settings",
             key: "videoBitRate",
             type: "number",
-            label: "Max Video Bitrate (bps)",
+            label: "最大视频比特率（bps）",
             min: 100,
             max: 100_000_000,
             step: 100,
@@ -376,7 +376,7 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "settings",
             key: "videoCodec",
             type: "dropdown",
-            label: "Video Codec",
+            label: "视频编码",
             options: [
                 {
                     key: "h264",
@@ -392,16 +392,16 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "settings",
             key: "videoEncoder",
             type: "dropdown",
-            label: "Video Encoder",
+            label: "视频编码器",
             placeholder:
                 SETTING_STATE.encoders.length === 0
-                    ? "Press refresh button to update encoder list"
-                    : "(default)",
+                    ? "按下刷新按钮以更新编码器列表"
+                    : "（默认）",
             labelExtra: (
                 <IconButton
                     iconProps={{ iconName: Icons.ArrowClockwise }}
                     disabled={!GLOBAL_STATE.adb}
-                    text="Refresh"
+                    text="刷新"
                     onClick={async () => {
                         try {
                             await STATE.pushServer();
@@ -444,31 +444,31 @@ export const SETTING_DEFINITIONS = computed(() => {
         group: "settings",
         key: "lockVideoOrientation",
         type: "dropdown",
-        label: "Lock Video Orientation",
+        label: "锁定视频方向",
         options: [
             {
                 key: ScrcpyVideoOrientation.Unlocked,
-                text: "Unlocked",
+                text: "未锁定",
             },
             {
                 key: ScrcpyVideoOrientation.Initial,
-                text: "Current",
+                text: "当前",
             },
             {
                 key: ScrcpyVideoOrientation.Portrait,
-                text: "Portrait",
+                text: "竖屏",
             },
             {
                 key: ScrcpyVideoOrientation.Landscape,
-                text: "Landscape",
+                text: "横屏",
             },
             {
                 key: ScrcpyVideoOrientation.PortraitFlipped,
-                text: "Portrait (Flipped)",
+                text: "竖屏（翻转）",
             },
             {
                 key: ScrcpyVideoOrientation.LandscapeFlipped,
-                text: "Landscape (Flipped)",
+                text: "横屏（翻转）",
             },
         ],
     });
@@ -478,7 +478,7 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "clientSettings",
             key: "decoder",
             type: "dropdown",
-            label: "Video Decoder",
+            label: "视频解码器",
             options: SETTING_STATE.decoders.map((item) => ({
                 key: item.key,
                 text: item.name,
@@ -491,8 +491,8 @@ export const SETTING_DEFINITIONS = computed(() => {
         group: "clientSettings",
         key: "ignoreDecoderCodecArgs",
         type: "toggle",
-        label: `Ignore video decoder's codec options`,
-        description: `Some decoders don't support all H.264 profile/levels, so they request the device to encode at their highest-supported codec. However, some super old devices may not support that codec so their encoders will fail to start. Use this option to let device choose the codec to be used.`,
+        label: `忽略视频解码器的编码选项`,
+        description: `一些解码器不支持所有的H.264配置文件/级别，因此它们请求设备以其支持的最高编解码器进行编码。然而，一些非常旧的设备可能不支持该编解码器，因此它们的编码器无法启动。使用此选项让设备选择要使用的编解码器。`,
     });
 
     result.push(
@@ -500,13 +500,13 @@ export const SETTING_DEFINITIONS = computed(() => {
             group: "settings",
             key: "audio",
             type: "toggle",
-            label: "Forward Audio (Requires Android 11)",
+            label: "镜像音频（需要Android 11）",
         },
         {
             group: "settings",
             key: "audioCodec",
             type: "dropdown",
-            label: "Audio Codec",
+            label: "音频编码",
             options: [
                 {
                     key: "raw",
@@ -528,9 +528,9 @@ export const SETTING_DEFINITIONS = computed(() => {
             type: "dropdown",
             placeholder:
                 SETTING_STATE.encoders.length === 0
-                    ? "Press refresh button to update encoder list"
-                    : "(default)",
-            label: "Audio Encoder",
+                    ? "按下刷新按钮以更新编码器列表"
+                    : "（默认）",
+            label: "音频编码器",
             labelExtra: (
                 <IconButton
                     iconProps={{ iconName: Icons.ArrowClockwise }}

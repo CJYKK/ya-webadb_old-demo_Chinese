@@ -30,22 +30,22 @@ const ROUTES = [
     {
         url: "/device-info",
         icon: Icons.Phone,
-        name: "Device Info",
+        name: "设备信息",
     },
     {
         url: "/file-manager",
         icon: Icons.Folder,
-        name: "File Manager",
+        name: "文件管理器",
     },
     {
         url: "/framebuffer",
         icon: Icons.Camera,
-        name: "Screen Capture",
+        name: "屏幕捕获",
     },
     {
         url: "/shell",
         icon: Icons.WindowConsole,
-        name: "Interactive Shell",
+        name: "交互式终端",
     },
     {
         url: "/scrcpy",
@@ -60,7 +60,7 @@ const ROUTES = [
     {
         url: "/install",
         icon: Icons.Box,
-        name: "Install APK",
+        name: "安装APK",
     },
     {
         url: "/logcat",
@@ -70,22 +70,22 @@ const ROUTES = [
     {
         url: "/power",
         icon: Icons.Power,
-        name: "Power Menu",
+        name: "电源菜单",
     },
     {
         url: "/chrome-devtools",
         icon: Icons.WindowDevTools,
-        name: "Chrome Remote Debugging",
+        name: "Chrome远程调试",
     },
     {
         url: "/bug-report",
         icon: Icons.Bug,
-        name: "Bug Report",
+        name: "错误报告",
     },
     {
         url: "/packet-log",
         icon: Icons.TextGrammarError,
-        name: "Packet Log",
+        name: "数据包日志",
     },
 ];
 
@@ -160,7 +160,7 @@ function App({ Component, pageProps }: AppProps) {
                 >
                     <IconButton
                         checked={leftPanelVisible}
-                        title="Toggle Menu"
+                        title="切换菜单"
                         iconProps={{ iconName: Icons.Navigation }}
                         onClick={toggleLeftPanel}
                     />
@@ -170,12 +170,12 @@ function App({ Component, pageProps }: AppProps) {
                     </StackItem>
 
                     <ExternalLink href="https://app.tangoapp.dev">
-                        <PrimaryButton>Try our new app</PrimaryButton>
+                        <PrimaryButton>尝试我们的新应用</PrimaryButton>
                     </ExternalLink>
 
                     <IconButton
                         iconProps={{ iconName: "PersonFeedback" }}
-                        title="Feedback"
+                        title="反馈"
                         as="a"
                         href="https://github.com/yume-chan/ya-webadb/issues/new"
                         target="_blank"

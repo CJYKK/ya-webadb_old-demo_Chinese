@@ -28,11 +28,11 @@ const Shell: NextPage = (): JSX.Element | null => {
     return (
         <>
             <Head>
-                <title>Interactive Shell - Tango</title>
+                <title>交互式终端 - Tango</title>
             </Head>
 
             <div ref={handleContainerRef} className={classes.container}>
-                <div>Loading Tabby...</div>
+                <div>正在加载Tabby……</div>
             </div>
         </>
     );
